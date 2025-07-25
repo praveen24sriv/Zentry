@@ -4,9 +4,7 @@ export class AuthService {
   client = new Client();
   account;
   constructor() {
-    this.client
-      .setEndpoint(conf.appwriteUrl)
-      .setProject(conf.appwriteProjectId);
+    this.client.setProject(conf.appwriteProjectId);
     this.account = new Account(this.client);
   }
   async createAccount({ email, password, name }) {
@@ -30,7 +28,7 @@ export class AuthService {
   }
   async Login({ email, password }) {
     try {
-      return await this.account.createEmailSession(email, password);
+      return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
       console.error("Error logging in:", error);
       throw error;
@@ -38,11 +36,12 @@ export class AuthService {
   }
   async getCurrentUser() {
     try {
-      if (this.account) return await this.account.get();
-      else return null;
+      // This fails if user is not logged in
+      const user = await this.account.get();
+      return user;
     } catch (error) {
-      console.error("Error getting account:", error);
-      throw error;
+      console.error("User not logged in or session expired:", error.message);
+      return null;
     }
   }
   async Logout() {
