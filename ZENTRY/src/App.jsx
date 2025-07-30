@@ -14,6 +14,7 @@ function App() {
     authService
       .getCurrentUser()
       .then((userData) => {
+        console.log("Current User:", userData); // Add this line to check user
         if (userData) {
           dispatch(login({ userData }));
         } else {
@@ -28,7 +29,7 @@ function App() {
       <div className="w-full block">
         <Header />
         <main>
-          TODO: <Outlet />
+          <Outlet />
         </main>
         <Footer />
       </div>
