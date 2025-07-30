@@ -20,11 +20,11 @@ function PostForm({ post }) {
 
   const submit = async (data) => {
     if (post) {
-      const file = data.image[0]
+      const file = data.image[0] // if image is provided, then upload the file
         ? appwriteService.uploadFile(data.image[0])
         : null;
 
-      if (file) {
+      if (file) { // if file is uploaded, then delete the old file(img)
         appwriteService.deleteFile(post.featuredImage);
       }
       const dbPost = await appwriteService.updatePost(post.$id, {
@@ -61,7 +61,7 @@ function PostForm({ post }) {
     return "";
   }, []);
 
-  useEffect(() => {
+  useEffect(() => { //interview question , unsubscribe used to optimize the function
     const subscription = watch((value, { name }) => {
       if (name === "title" ) {
         const slug = slugTransform(value.title);
@@ -69,7 +69,7 @@ function PostForm({ post }) {
         {shouldValidate:true}
       }
     });
-    return () => subscription.unsubscribe(); //interview question , unsubscribe used to optimize the function
+    return () => subscription.unsubscribe(); 
   }, [watch, slugTransform, setValue]);
 
 
