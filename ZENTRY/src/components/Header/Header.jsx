@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Logo, LogoutBtn } from "../index.js";
+import { Container, Logo, LogoutBtn } from "../index";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
+
   const navItems = [
     {
       name: "Home",
@@ -45,7 +46,6 @@ function Header() {
             </Link>
           </div>
           <ul className="flex ml-auto">
-            {/* add key to html element which is repeating */}
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
@@ -58,7 +58,6 @@ function Header() {
                 </li>
               ) : null
             )}
-            {/* if authstatus is true then show logout button */}
             {authStatus && (
               <li>
                 <LogoutBtn />
