@@ -1,6 +1,8 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 # Zentry — Production-Grade Blogging Platform
 
-**Zentry** is a full-featured, production-ready blogging web application built using **React.js** and **Appwrite**. Designed for modern content creators and developers, Zentry offers high performance, secure content management, real-time editing capabilities, and a clean, responsive user interface.
+**Zentry** is a production-grade blogging web application built using **React.js** and **Appwrite**. Designed for modern content creators and developers, Zentry offers high performance, secure content management, real-time editing capabilities, and a clean, responsive user interface.
 
 Built with scalability, modularity, and industry best practices in mind.
 
