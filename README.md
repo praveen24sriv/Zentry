@@ -40,6 +40,7 @@ Built with scalability, modularity, and industry best practices in mind.
 ## Preview
 
 ![Zentry Screenshot](./Zentry-website.png)
+![Zentry Screenshot](./Zentry-website2.png)
 
 ---
 
